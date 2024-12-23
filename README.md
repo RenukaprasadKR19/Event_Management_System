@@ -1,70 +1,171 @@
-# Getting Started with Create React App
+# Event Management Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+The Event Management Dashboard is a web-based application designed to help organizations efficiently manage events, attendees, and tasks. This project was developed for a hackathon challenge to address the challenges faced in organizing and managing events.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### Core Features
+1. **Event Management**
+   - Create, read, update, and delete events.
+   - Display event details such as name, description, location, and date.
 
-### `npm start`
+2. **Attendee Management**
+   - Add and remove attendees.
+   - Assign attendees to specific events and tasks.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. **Task Tracker**
+   - Display tasks related to each event.
+   - Update task statuses (Pending/Completed).
+   - Visualize task progress using a progress bar.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Additional Features (Bonus)
+1. Authentication for login/logout to access the dashboard.
+2. A calendar view to display events visually.
+3. Real-time updates for task progress using WebSockets.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+### Event Management Page
+![Event Management Page](./assets/event-management.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Attendee Management Page
+![Attendee Management Page](./assets/attendee-management.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Task Tracker Page
+![Task Tracker Page](./assets/task-tracker.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Calendar View
+![Calendar View](./assets/calendar-view.png)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technology Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Frontend
+- **Framework**: React.js
+- **Styling**: Tailwind CSS / Bootstrap
+- **State Management**: Redux
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Backend
+- **Framework**: Node.js with Express.js
+- **Database**: MongoDB
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Integration
+- **API Communication**: RESTful APIs
+- **Real-time Updates**: WebSockets (Socket.IO)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Setup and Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
+- Node.js
+- MongoDB
+- Git
 
-### Code Splitting
+### Steps to Run the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/event-management-dashboard.git
+   cd event-management-dashboard
+   ```
 
-### Analyzing the Bundle Size
+2. Install dependencies for both frontend and backend:
+   ```bash
+   cd frontend
+   npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   cd ../backend
+   npm install
+   ```
 
-### Making a Progressive Web App
+3. Set up environment variables:
+   - Create a `.env` file in the `backend` folder with the following:
+     ```env
+     PORT=5000
+     MONGO_URI=mongodb://localhost:27017/event_management
+     JWT_SECRET=your_jwt_secret
+     ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Start the backend server:
+   ```bash
+   cd backend
+   npm start
+   ```
 
-### Advanced Configuration
+5. Start the frontend server:
+   ```bash
+   cd frontend
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+6. Open the application in your browser at `http://localhost:3000`.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## API Documentation
 
-### `npm run build` fails to minify
+### Event Management API
+- **POST** `/api/events`: Create an event.
+- **GET** `/api/events`: Retrieve all events.
+- **PUT** `/api/events/:id`: Update an event.
+- **DELETE** `/api/events/:id`: Delete an event.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Attendee Management API
+- **POST** `/api/attendees`: Add an attendee.
+- **GET** `/api/attendees`: Retrieve all attendees.
+- **DELETE** `/api/attendees/:id`: Remove an attendee.
+
+### Task Management API
+- **POST** `/api/tasks`: Create a task.
+- **GET** `/api/events/:eventId/tasks`: Retrieve tasks for a specific event.
+- **PUT** `/api/tasks/:id`: Update task status.
+
+---
+
+## Folder Structure
+
+```
+.
+├── backend
+│   ├── models
+│   ├── routes
+│   ├── controllers
+│   ├── middleware
+│   └── server.js
+├── frontend
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
+│   │   ├── redux
+│   │   └── App.js
+│   └── public
+├── assets
+└── README.md
+```
+
+---
+
+## Future Enhancements
+1. Add notifications for task updates.
+2. Enable exporting event details and attendee lists.
+3. Add support for multi-language localization.
+
+---
+
+## Contribution
+Feel free to fork this repository, raise issues, or submit pull requests. Contributions are welcome!
+
+---
+
+## License
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+## Contact
+For any queries, reach out at [developer@webknot.in](mailto:developer@webknot.in).
