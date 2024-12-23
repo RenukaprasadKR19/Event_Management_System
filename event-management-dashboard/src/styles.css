@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .app {
+    padding: 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: white;
+    background: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .navbar a:hover {
+    background: #0056b3;
+  }
+  
