@@ -1,5 +1,4 @@
-```markdown
-# Event Management Dashboard
+ Event Management Dashboard
 
 ## 🚀 Project Overview
 
