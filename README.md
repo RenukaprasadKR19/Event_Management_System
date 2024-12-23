@@ -1,5 +1,3 @@
-Here is the `README.md` file in code format for your **Event Management Dashboard** project, ready for GitHub:
-
 ```markdown
 # Event Management Dashboard
 
